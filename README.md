@@ -154,10 +154,34 @@ M1 vout vin GND GND NMOS W=1u L=130n
 
 .control
 
-***DC Sweep***
+***small signal analysis***
 tran 1u 0.5m
 plot v(vout) v(vin)
 
+.endc
+.end
+```
+## AC analysis / Frequency response 
+```
+.include 130nm_bulk.pm.txt
+
+******Netlist part*********
+VDD net1 GND 1.5
+RD net1 vout 10k
+VG vin GND dc 0.3 ac 1
+*VG vin GND SIN(0.4 50m 10k)
+** M1 Drain Gate Source Substrate
+M1 vout vin GND GND NMOS W=1u L=130n
+
+*****Analysis*******
+
+.control
+*** AC/Frequency response
+**Magnitude response
+ac dec 100 1 100G
+plot vdb(vout)
+**phase response
+plot ph(vout)
 .endc
 .end
 ```
