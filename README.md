@@ -18,7 +18,7 @@ To simulate we need .cir files
 
 ### DC Analysis
 ```
-.include cmos_130nm.txt
+.include 130nm_bulk.pm.txt
 
 ******Netlist part*********
 VDD net1 GND 1.5
@@ -43,7 +43,7 @@ print v(vout)
 ## DC sweep
 
 ```
-.include cmos_130nm.txt
+.include 130nm_bulk.pm.txt
 
 ******Netlist part*********
 VDD net1 GND 1.5
@@ -67,7 +67,7 @@ plot v(vout)
 
 ## Transistor parameters 
 ```
-.include cmos_130nm.txt
+.include 130nm_bulk.pm.txt
 
 ******Netlist part*********
 VDD net1 GND 1.5
@@ -92,7 +92,7 @@ plot @M1[id]
 
 ## Transistors gm plot
 ```
-.include cmos_130nm.txt
+.include 130nm_bulk.pm.txt
 
 ******Netlist part*********
 VDD net1 GND 1.5
@@ -140,7 +140,7 @@ plot @M1[id] vs v(vout)
 ```
 ## Small signal analysis 
 ```
-.include cmos_130nm.txt
+.include 130nm_bulk.pm.txt
 
 ******Netlist part*********
 VDD net1 GND 1.5
@@ -156,7 +156,7 @@ M1 vout vin GND GND NMOS W=1u L=130n
 
 ***DC Sweep***
 tran 1u 0.5m
-plot v(vout) v(in)
+plot v(vout) v(vin)
 
 .endc
 .end
