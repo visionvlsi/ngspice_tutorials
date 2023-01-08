@@ -138,3 +138,26 @@ plot @M1[id] vs v(vout)
 .endc
 .end
 ```
+## Small signal analysis 
+```
+.include cmos_130nm.txt
+
+******Netlist part*********
+VDD net1 GND 1.5
+RD net1 vout 10k
+*VG vin GND 0.6
+VG vin GND SIN(0.4 50m 10k)
+** M1 Drain Gate Source Substrate
+M1 vout vin GND GND NMOS W=1u L=130n
+
+*****Analysis*******
+
+.control
+
+***DC Sweep***
+tran 1u 0.5m
+plot v(vout) v(in)
+
+.endc
+.end
+```
