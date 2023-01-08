@@ -31,6 +31,7 @@ M1 vout vin GND GND NMOS W=1u L=130n
 .control
 
 ****DC Analysis*****
+op
 print @M1[id]
 print @M1[gm]
 print v(vout)
