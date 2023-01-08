@@ -89,3 +89,28 @@ plot @M1[id]
 .end
 
 ```
+
+## Transistors gm plot
+```
+.include cmos_130nm.txt
+
+******Netlist part*********
+VDD net1 GND 1.5
+RD net1 vout 10k
+VG vin GND 0.6
+** M1 Drain Gate Source Substrate
+M1 vout vin GND GND NMOS W=1u L=130n
+
+*****Analysis*******
+
+.control
+
+***DC Sweep***
+save all @M1[id]
+save all @M1[gm]
+dc VG 0 1.5 0.1
+plot @M1[id]
+
+.endc
+.end
+```
